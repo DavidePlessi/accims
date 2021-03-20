@@ -19,8 +19,8 @@ class TranslationSettingsClass {
       return settings;
     }
   }
-  static async getSettings() {
-    return this.findOne({});
+  static async getSettings(options = {}) {
+    return this.findOne({}, null, options);
   }
 }
 

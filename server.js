@@ -23,6 +23,7 @@ app.use('/api/users', require('./routes/users'));
 app.use('/api/translations', require('./routes/translations/translations'));
 app.use('/api/translation-categories', require('./routes/translations/translationCategories'));
 app.use('/api/translation-settings', require('./routes/translations/translationSettings'));
+app.use('/api/i18n', express.static('outputData'))
 
 app.use(exceptionHandler);
 

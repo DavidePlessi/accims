@@ -63,10 +63,11 @@ router.post(
 
       await user.save();
 
-      jwtUtils.sign(
-        user,
-        (token) => res.json({ token })
-      );
+      return res.json(
+        await User.findById(user._id)
+          .select('-password')
+          .select('-passwordExpirationDate')
+      )
     } catch (err) {
       console.error(err.message);
       res.status(500).json({errorCodes: [errorMessages.GenericError]});
